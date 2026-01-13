@@ -17,13 +17,32 @@ const Activities = () => {
   }, [apiUrl]);
 
   return (
-    <div>
-      <h2>Activities</h2>
-      <ul>
-        {activities.map(activity => (
-          <li key={activity.id}>{activity.type} - {activity.duration} min, {activity.distance} km</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-header bg-primary text-white">
+        <h2 className="h4 mb-0">Activities</h2>
+      </div>
+      <div className="card-body">
+        <div className="table-responsive">
+          <table className="table table-striped table-hover">
+            <thead className="table-light">
+              <tr>
+                <th>Type</th>
+                <th>Duration (min)</th>
+                <th>Distance (km)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {activities.map(activity => (
+                <tr key={activity.id}>
+                  <td>{activity.type}</td>
+                  <td>{activity.duration}</td>
+                  <td>{activity.distance}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

@@ -17,13 +17,32 @@ const Workouts = () => {
   }, [apiUrl]);
 
   return (
-    <div>
-      <h2>Workouts</h2>
-      <ul>
-        {workouts.map(workout => (
-          <li key={workout.id}>{workout.name} - {workout.duration} min</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-header bg-warning text-dark">
+        <h2 className="h4 mb-0">Workouts</h2>
+      </div>
+      <div className="card-body">
+        <div className="table-responsive">
+          <table className="table table-striped table-hover">
+            <thead className="table-light">
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Duration (min)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {workouts.map(workout => (
+                <tr key={workout.id}>
+                  <td>{workout.name}</td>
+                  <td>{workout.description}</td>
+                  <td>{workout.duration}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
