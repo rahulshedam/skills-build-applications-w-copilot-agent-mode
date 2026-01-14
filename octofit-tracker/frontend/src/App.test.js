@@ -3,10 +3,8 @@ import App from './App';
 
 test('renders welcome message', () => {
   render(<App />);
-  // Use a more flexible matcher since the text is split by a span element
-  const welcomeElement = screen.getByText((content, element) => {
-    return element?.tagName.toLowerCase() === 'h1' && content.includes('Welcome to');
-  });
+  // Use getByRole with level and text content check
+  const welcomeElement = screen.getByRole('heading', { level: 1 });
   expect(welcomeElement).toBeInTheDocument();
   expect(welcomeElement).toHaveTextContent('Welcome to OctoFit Tracker!');
 });
