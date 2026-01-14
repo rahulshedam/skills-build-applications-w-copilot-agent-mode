@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { getApiUrl } from '../utils/api';
 
 const Workouts = () => {
   const [workouts, setWorkouts] = useState([]);
-  const apiUrl = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`;
+  const apiUrl = getApiUrl('/api/workouts/');
 
   useEffect(() => {
     console.log('Fetching workouts from:', apiUrl);
