@@ -1,9 +1,20 @@
-const getApiUrl = (endpoint) => {
-  const codespace = process.env.REACT_APP_CODESPACE_NAME;
-  const baseUrl = codespace 
-    ? `https://${codespace}-8000.app.github.dev`
+// API utility functions
+
+/**
+ * Get the base URL for API calls based on environment
+ * @returns {string} The base URL (Codespaces URL or localhost)
+ */
+export const getApiBaseUrl = () => {
+  return process.env.REACT_APP_CODESPACE_NAME 
+    ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
     : 'http://localhost:8000';
-  return `${baseUrl}/api/${endpoint}/`;
 };
 
-export default getApiUrl;
+/**
+ * Get the full API endpoint URL
+ * @param {string} endpoint - The API endpoint path (e.g., '/api/activities/')
+ * @returns {string} The complete API URL
+ */
+export const getApiUrl = (endpoint) => {
+  return `${getApiBaseUrl()}${endpoint}`;
+};

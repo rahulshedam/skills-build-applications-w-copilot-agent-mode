@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import getApiUrl from '../utils/api';
+import { getApiUrl } from '../utils/api';
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
-  const apiUrl = getApiUrl('teams');
+  const apiUrl = getApiUrl('/api/teams/');
 
   useEffect(() => {
     console.log('Fetching teams from:', apiUrl);
