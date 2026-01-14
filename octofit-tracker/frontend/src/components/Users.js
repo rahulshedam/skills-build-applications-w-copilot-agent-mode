@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { getBaseUrl } from '../utils/api';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const baseUrl = process.env.REACT_APP_CODESPACE_NAME 
-    ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev` 
-    : 'http://localhost:8000';
-  const apiUrl = `${baseUrl}/api/users/`;
+  const apiUrl = `${getBaseUrl()}/api/users/`;
 
   useEffect(() => {
     console.log('Fetching users from:', apiUrl);
