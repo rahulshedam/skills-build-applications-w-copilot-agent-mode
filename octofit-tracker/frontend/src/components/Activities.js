@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { getBaseUrl } from '../utils/api';
+import { getApiUrl } from '../utils/api';
 
 const Activities = () => {
   const [activities, setActivities] = useState([]);
-  const apiUrl = `${getBaseUrl()}/api/activities/`;
+  const apiUrl = getApiUrl('/api/activities/');
 
   useEffect(() => {
     console.log('Fetching activities from:', apiUrl);

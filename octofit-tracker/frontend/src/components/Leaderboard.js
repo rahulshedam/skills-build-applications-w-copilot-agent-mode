@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { getBaseUrl } from '../utils/api';
+import { getApiUrl } from '../utils/api';
 
 const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
-  const apiUrl = `${getBaseUrl()}/api/leaderboard/`;
+  const apiUrl = getApiUrl('/api/leaderboard/');
 
   useEffect(() => {
     console.log('Fetching leaderboard from:', apiUrl);
