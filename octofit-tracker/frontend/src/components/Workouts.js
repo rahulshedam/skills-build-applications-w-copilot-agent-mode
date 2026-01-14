@@ -3,7 +3,7 @@ import { getApiUrl } from '../utils/api';
 
 const Workouts = () => {
   const [workouts, setWorkouts] = useState([]);
-  const apiUrl = getApiUrl('workouts');
+  const apiUrl = getApiUrl('/api/workouts/');
 
   useEffect(() => {
     console.log('Fetching workouts from:', apiUrl);

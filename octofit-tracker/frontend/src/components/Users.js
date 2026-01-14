@@ -3,7 +3,7 @@ import { getApiUrl } from '../utils/api';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const apiUrl = getApiUrl('users');
+  const apiUrl = getApiUrl('/api/users/');
 
   useEffect(() => {
     console.log('Fetching users from:', apiUrl);
