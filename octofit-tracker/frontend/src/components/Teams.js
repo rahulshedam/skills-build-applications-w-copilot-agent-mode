@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { getApiUrl } from '../utils/api';
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
-  const apiUrl = process.env.REACT_APP_CODESPACE_NAME 
-    ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/teams/`
-    : 'http://localhost:8000/api/teams/';
+  const apiUrl = getApiUrl('/api/teams/');
 
   useEffect(() => {
     console.log('Fetching teams from:', apiUrl);
